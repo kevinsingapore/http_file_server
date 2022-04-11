@@ -9,6 +9,9 @@ import (
 func main() {
 	r := gin.Default()
 
+	r.Use(gin.Logger())
+	r.Use(gin.Recovery())
+
 	// 定义ID与PW
 	authoried := r.Group("/", gin.BasicAuth(gin.Accounts{
 		"kevin_coding": "5Xq0mQsdrifMMoajeD5sQSo0qkA=",
